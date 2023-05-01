@@ -20,7 +20,7 @@ module.exports = (app) => {
       },
       store: MongoStore.create({
         mongoUrl:
-          process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/authIntro",
+          process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/toDoApp",
       }),
     })
   );

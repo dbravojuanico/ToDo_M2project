@@ -6,6 +6,7 @@ const { isLoggedIn, isLoggedOut } = require("../middleware/protect-routes");
 
 router.get("/", async (req, res, next) => {
   try {
+    console.log(req.session);
     const taskList = await Task.find({ creator: req.session.currentUser });
     let logged = true;
     res.render("task/taskList", { taskList, logged });
