@@ -56,11 +56,13 @@ router.post("/login", async (req, res, next) => {
         req.session.currentUser = checkUser;
         res.redirect("/task");
       } else {
+        console.log("first else");
         res.render("auth/login", {
           errorMessage: "Password incorrect",
         });
       }
     } else {
+      console.log("second else");
       res.render("auth/login", {
         errorMessage: "User incorrect",
       });
