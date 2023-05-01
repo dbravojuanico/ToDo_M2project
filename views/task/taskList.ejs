@@ -1,19 +1,23 @@
-<h1>List of tasks</h1>
-<form action="/task" method="post">
-  <input type="text" name="search" />
-  <button type="submit"></button>
-</form>
-<div class="task-container">
-  <% taskList.forEach(task => { %>
-  <div class="task-card">
-    <h4><%-task.name%></h4>
-    <h6>Priority: <%-task.priority%></h6>
-    <h6>Status: <%-task.state%></h6>
-    <p><%-task.description%></p>
-    <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
-      >Details</a
-    >
+<section class="main-info">
+  <div class="search-form">
+    <h1>List of tasks</h1>
+    <form action="/task" method="post">
+      <input type="text" name="search" />
+      <button class="button-10" type="submit">Search</button>
+    </form>
   </div>
-  <% }) %>
-</div>
-<a href="/task/create"><button class="button-10">CREATE TASK</button></a>
+  <div class="task-container">
+    <% taskList.forEach(task => { %>
+    <div class="task-card">
+      <h4><%-task.name%></h4>
+      <h6>Priority: <%-task.priority%></h6>
+      <h6>Status: <%-task.state%></h6>
+      <p><%-task.description%></p>
+      <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
+        >Edit</a
+      >
+    </div>
+    <% }) %>
+  </div>
+  <a href="/task/create"><button class="button-10">CREATE TASK</button></a>
+</section>

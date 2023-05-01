@@ -18,41 +18,31 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body class="d-flex flex-column" style="height: 90vw">
-    <nav class="d-flex justify-content-between align-items-center">
+  <body>
+    <nav class="nav-bar">
       <div class="logo-and-text">
         <a href="/"
           ><img
-            style="height: 100px"
             src="https://www.pngkit.com/png/full/72-723192_png-file-white-success-icon-png.png"
             alt="main logo"
         /></a>
         <span class="logo-title">ToDo</span>
       </div>
-      <div>
+      <div class="nav-buttons">
         <% if (typeof logged !== "undefined") { %>
-        <a href="/task">TASK LIST</a>
-        <a href="/auth/logout">LOG OUT</a>
+        <a class="button-10" href="/task">TASK LIST</a>
+        <a class="button-10" href="/auth/logout">LOG OUT</a>
         <% } else { %>
-        <button
-          onclick="window.location='/auth/signup'"
-          class="btn btn-primary"
-        >
-          SIGN UP
-        </button>
-        <button onclick="window.location='/auth/login'" class="btn btn-primary">
-          LOG IN
-        </button>
+        <a class="button-10" href="/auth/signup"> SIGN UP </a>
+        <a class="button-10" href="/auth/login">LOG IN</a>
 
         <% } %>
       </div>
     </nav>
-    <hr />
 
     <div><%- body %></div>
 
-    <hr />
-    <footer class="d-flex self-align-end">Created by Oguzhan & Dani</footer>
+    <footer class="footer-container">Created by Oguzhan & Dani</footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

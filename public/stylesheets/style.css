@@ -4,8 +4,24 @@ a {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   padding: 50px;
-  background-color: #e3fdfd;
+  background-color: #f6ffde;
+  height: 90vw;
+}
+
+.nav-bar {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e3f2c1;
+  border-radius: 10px;
+}
+
+.nav-bar img {
+  height: 85px;
 }
 
 .logo-title {
@@ -14,12 +30,36 @@ body {
 }
 
 .logo-and-text {
+  margin-left: 15px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+.nav-buttons {
+  display: flex;
+  margin-right: 15px;
+  gap: 10px;
+}
+
+.footer-container {
+  background-color: #e3f2c1;
+  display: flex;
+  align-self: flex-end;
+
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+}
+
 /* TASK LIST */
+
+.main-info {
+  padding: 20px;
+  background-color: #e3f2c1;
+  margin: 10px 0px;
+  border-radius: 10px;
+}
 
 .task-container {
   display: flex;
@@ -36,6 +76,7 @@ body {
   border-radius: 6px;
   width: 250px;
   padding: 10px;
+  background-color: #c9dbb2;
 }
 
 /* FORMS */
@@ -53,6 +94,25 @@ body {
   margin-top: 5px;
 }
 
+/* TASK LIST */
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.search-form form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form input {
+  border-radius: 6px;
+  border: 1px lightgray solid;
+}
+
 /* BUTTONS */
 
 .button-10 {
@@ -60,15 +120,14 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+
   border-radius: 6px;
   border: none;
 
   color: #fff;
-  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
-  background-origin: border-box;
+  background: #aac8a7;
 }
 
 .button-10:hover {
-  background: linear-gradient(180deg, #4485e8 0%, #2f6ad7 100%);
+  background: #88a186;
 }
