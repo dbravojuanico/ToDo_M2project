@@ -1,0 +1,32 @@
+<h1>Create new task</h1>
+<form class="signup-form" method="post" action="/task/create">
+  <label>Name:</label>
+  <input maxlength="20" name="name" type="text" placeholder="Task name" />
+  <label>Description:</label>
+  <input
+    maxlength="100"
+    name="description"
+    type="text"
+    placeholder="Task description"
+  />
+  <label>Priority: </label>
+  <select name="priority">
+    <option value="high">HIGH</option>
+    <option value="medium">MEDIUM</option>
+    <option value="low">LOW</option>
+  </select>
+  <label>Status: </label>
+  <select name="state">
+    <option value="pending">PENDING</option>
+    <option value="done">DONE</option>
+  </select>
+  <label>User ID: </label>
+  <input type="text" name="creator" readonly value="<%- currentUserId  %>" />
+  <div class="signup-button">
+    <button type="submit" class="button-10">CREATE TASK</button>
+  </div>
+</form>
+
+<% if (typeof errorMessage !== "undefined") { %>
+<h4><%- errorMessage %></h4>
+<% } %>

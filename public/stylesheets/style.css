@@ -1,0 +1,74 @@
+/* LAYOUT AND BODY */
+a {
+  text-decoration: none;
+}
+
+body {
+  padding: 50px;
+  background-color: #e3fdfd;
+}
+
+.logo-title {
+  font-family: "Sigmar";
+  font-size: 50px;
+}
+
+.logo-and-text {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* TASK LIST */
+
+.task-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: 1px lightgrey solid;
+  border-radius: 6px;
+  width: 250px;
+  padding: 10px;
+}
+
+/* FORMS */
+/* SIGN UP FORM */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.signup-button {
+  margin-top: 5px;
+}
+
+/* BUTTONS */
+
+.button-10 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  color: #fff;
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  background-origin: border-box;
+}
+
+.button-10:hover {
+  background: linear-gradient(180deg, #4485e8 0%, #2f6ad7 100%);
+}

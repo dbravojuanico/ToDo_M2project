@@ -1,0 +1,7 @@
+<h1>Task details</h1>
+<h3><%- currentTask.name %></h3>
+<h4><%- currentTask.description %></h4>
+<h4><%- currentTask.priority %></h4>
+<h4><%- currentTask.state %></h4>
+<a href=<%-`/task/delete/${currentTask._id}`%>>DELETE TASK</a>
+<a href=<%-`/task/update/${currentTask._id}`%>>EDIT TASK</a>
