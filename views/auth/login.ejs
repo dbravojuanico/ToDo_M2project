@@ -1,15 +1,18 @@
-<h1>Log in page</h1>
-<form class="signup-form" method="post" action="/auth/login">
-  <label>User:</label>
-  <input name="username" type="text" />
-  <label>Password:</label>
-  <input name="password" type="password" />
-  <div class="signup-button"></div>
-  <button class="button-10" role="button" type="submit">LOG IN</button>
-</div>
-</form>
-<% if (typeof errorMessage !== "undefined") { %>
-<h4><%- errorMessage %></h4>
-<% } %>
+<div class="main-info">
+  <h1>Log in page</h1>
+  <form class="signup-form" method="post" action="/auth/login">
+    <div class="label-input">
+      <label>User</label>
+      <input name="username" type="text" />
+    </div>
+    <div class="label-input">
+      <label>Password:</label>
+      <input name="password" type="password" />
+    </div>
 
-<h5>1234asdfASDF!?</h5>
+    <button class="button-10" type="submit">LOG IN</button>
+  </form>
+  <% if (typeof errorMessage !== "undefined") { %>
+  <h4><%- errorMessage %></h4>
+  <% } %>
+</div>
