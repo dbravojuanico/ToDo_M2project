@@ -90,6 +90,11 @@
   /* FORMS */
   /* SIGN UP FORM */
 
+  form,
+  button {
+    font-weight: lighter;
+  }
+
   .label-input {
     display: flex;
     margin-top: 5px;
