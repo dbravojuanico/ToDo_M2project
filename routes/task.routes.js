@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Task = require("../models/Task.model");
 const { isLoggedIn, isLoggedOut } = require("../middleware/protect-routes");
+const { Schema, model } = require("mongoose");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -43,6 +44,12 @@ router.post("/create", async (req, res) => {
   try {
     if (req.body.name) {
       if (req.body.description) {
+        if (
+          typeof req.body.creator[1] === "string" &&
+          req.body.creator[1].length !== 24
+        ) {
+          req.body.creator.pop();
+        }
         await Task.create(req.body);
         res.redirect("/task");
       } else {

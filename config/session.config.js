@@ -9,7 +9,7 @@ module.exports = (app) => {
   // use session
   app.use(
     session({
-      secret: process.env.SESS_SECRET,
+      secret: "supersecret",
       resave: true,
       saveUninitialized: false,
       cookie: {
