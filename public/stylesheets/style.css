@@ -90,9 +90,8 @@
   /* FORMS */
   /* SIGN UP FORM */
 
-  form,
-  button {
-    font-weight: lighter;
+  form button {
+    font-weight: 400;
   }
 
   .label-input {
