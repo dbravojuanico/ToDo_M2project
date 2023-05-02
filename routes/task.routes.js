@@ -4,10 +4,10 @@ const router = express.Router();
 const Task = require("../models/Task.model");
 const { isLoggedIn, isLoggedOut } = require("../middleware/protect-routes");
 const { Schema, model } = require("mongoose");
+const User = require("../models/User.model");
 
 router.get("/", async (req, res, next) => {
   try {
-    console.log("task route", req.session);
     const taskList = await Task.find({ creator: req.session.currentUser });
     let logged = true;
     res.render("task/taskList", { taskList, logged });
@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     const unfilteredList = await Task.find({
       creator: req.session.currentUser,
     });
-    console.log(unfilteredList);
+
     let taskList = [];
     unfilteredList.forEach((task) => {
       if (task.name.includes(req.body.search)) {
@@ -45,8 +45,29 @@ router.post("/create", async (req, res) => {
   try {
     if (req.body.name) {
       if (req.body.description) {
-        await Task.create(req.body);
-        res.redirect("/task");
+        if (req.body.sharedWith) {
+          const sharedUser = await User.findOne({
+            username: req.body.sharedWith,
+          });
+          if (sharedUser) {
+            const creatorArray = [req.body.creator, sharedUser._id];
+            await Task.create(
+              Object.assign({}, req.body, { creator: creatorArray })
+            );
+            res.redirect("/task");
+          } else {
+            //NOT WORKING
+            const currentUserId = req.session.currentUser._id;
+            res.render("task/createTask", {
+              currentUserId,
+              errorMessage: "User not found in database",
+            });
+            // NOT WORKING
+          }
+        } else {
+          await Task.create(req.body);
+          res.redirect("/task");
+        }
       } else {
         const currentUserId = req.session.currentUser._id;
         res.render("task/createTask", {

@@ -25,6 +25,9 @@ const taskSchema = new Schema({
       ref: "user",
     },
   ],
+  sharedWith: {
+    type: String,
+  },
 });
 
 const Task = model("Task", taskSchema);
