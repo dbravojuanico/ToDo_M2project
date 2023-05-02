@@ -7,6 +7,7 @@ module.exports = (app) => {
   // when this file gets imported/required there
 
   // use session
+  app.set("trust proxy", 1);
   app.use(
     session({
       secret: "supersecret",

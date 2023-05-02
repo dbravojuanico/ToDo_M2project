@@ -107,6 +107,7 @@ label {
 input {
   border: none;
   border-radius: 0 6px 6px 0;
+  width: 230px;
 }
 
 select {
