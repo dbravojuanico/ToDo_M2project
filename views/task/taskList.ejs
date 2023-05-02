@@ -33,12 +33,10 @@
       <h6>Priority: <%-task.priority%></h6>
       <h6>Status: <%-task.state%></h6>
       <p><%-task.description%></p>
-      <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
-        >Edit</a
-      >
+      <a class="button-10" href="<%-`/task/details/${task._id}`%>">Edit</a>
     </div>
     <% } %> <% }) %>
   </div>
 
-  <a href="/task/create"><button class="button-10">CREATE TASK</button></a>
+  <a href="/task/create" class="button-10">CREATE TASK</a>
 </section>

@@ -35,7 +35,13 @@ router.post("/", async (req, res) => {
       }
     });
     let logged = true;
-    res.render("task/taskList", { taskList, logged });
+    let completedTasks = 0;
+    taskList.forEach((task) => {
+      if (task.state === "done") {
+        completedTasks += 1;
+      }
+    });
+    res.render("task/taskList", { taskList, logged, completedTasks });
   } catch (error) {
     console.log(error);
   }
