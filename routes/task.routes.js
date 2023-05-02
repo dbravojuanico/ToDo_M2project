@@ -6,11 +6,17 @@ const { isLoggedIn, isLoggedOut } = require("../middleware/protect-routes");
 const { Schema, model } = require("mongoose");
 const User = require("../models/User.model");
 
-router.get("/", async (req, res, next) => {
+router.get("/", isLoggedIn, async (req, res, next) => {
   try {
     const taskList = await Task.find({ creator: req.session.currentUser });
     let logged = true;
-    res.render("task/taskList", { taskList, logged });
+    let completedTasks = 0;
+    taskList.forEach((task) => {
+      if (task.state === "done") {
+        completedTasks += 1;
+      }
+    });
+    res.render("task/taskList", { taskList, logged, completedTasks });
   } catch (error) {
     console.log(error);
   }

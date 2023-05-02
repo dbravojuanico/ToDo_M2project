@@ -6,8 +6,11 @@
       <button class="button-10" type="submit">Search</button>
     </form>
   </div>
+  <% if (taskList.length-completedTasks > 0) { %>
+  <h3>Pending tasks: <%=taskList.length-completedTasks%></h3>
+  <% } %>
   <div class="task-container">
-    <% taskList.forEach(task => { %>
+    <% taskList.forEach(task => { %> <% if (task.state === "pending") { %>
     <div class="task-card">
       <h4><%-task.name%></h4>
       <h6>Priority: <%-task.priority%></h6>
@@ -17,7 +20,25 @@
         >Edit</a
       >
     </div>
-    <% }) %>
+    <%} %> <% }) %>
   </div>
+  <% if (completedTasks > 0) { %>
+  <h3>Completed tasks: <%=completedTasks%></h3>
+  <% } %>
+
+  <div class="task-container">
+    <% taskList.forEach(task => { %> <% if (task.state === "done") { %>
+    <div class="task-card">
+      <h4><%-task.name%></h4>
+      <h6>Priority: <%-task.priority%></h6>
+      <h6>Status: <%-task.state%></h6>
+      <p><%-task.description%></p>
+      <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
+        >Edit</a
+      >
+    </div>
+    <% } %> <% }) %>
+  </div>
+
   <a href="/task/create"><button class="button-10">CREATE TASK</button></a>
 </section>

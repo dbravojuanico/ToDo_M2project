@@ -8,11 +8,10 @@ body {
   flex-direction: column;
   padding: 50px;
   background-color: #f6ffde;
-  height: 90vw;
 }
 
 .nav-bar {
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +20,7 @@ body {
 }
 
 .nav-bar img {
-  height: 85px;
+  height: 65px;
 }
 
 .logo-title {
@@ -40,6 +39,10 @@ body {
   display: flex;
   margin-right: 15px;
   gap: 10px;
+}
+
+.index-text {
+  font-size: 25px;
 }
 
 .footer-container {
@@ -73,7 +76,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  border: 1px lightgrey solid;
   border-radius: 6px;
   width: 250px;
   padding: 10px;
@@ -84,7 +86,7 @@ body {
 
 .edit-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -113,6 +115,7 @@ input {
 select {
   border: none;
   border-radius: 0 6px 6px 0;
+  width: 230px;
 }
 
 .signup-form {
@@ -127,7 +130,7 @@ select {
   margin-top: 5px;
 }
 
-/* TASK LIST */
+/* SEARCH FORM */
 
 .search-form {
   display: flex;
@@ -138,12 +141,14 @@ select {
 
 .search-form form {
   display: flex;
-  gap: 10px;
 }
 
 .search-form input {
-  border-radius: 6px;
-  border: 1px lightgray solid;
+  border-radius: 6px 0 0 6px;
+}
+
+.search-form button {
+  border-radius: 0 6px 6px 0;
 }
 
 /* BUTTONS */
