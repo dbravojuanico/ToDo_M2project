@@ -1,37 +1,38 @@
 <div class="main-info">
   <h1>Update this task</h1>
-  <form method="post" action=<%-`/task/update/${currentTask._id}`  %>>
-    <label
-      >Name:<input name="name" type="text" 
-      maxlength="20" value="<%- currentTask.name %>"
-    /></label>
-    <label
-      >Description:<input
-      maxlength="100"
-        name="description"
-        type="text"
-        value="<%- currentTask.description %>"
-    /></label>
-    <label
-      >Priority:
+  <form class="signup-form" method="post" action=<%-`/task/update/${currentTask._id}`  %>>
+    <div class="label-input">
+      <label>Name</label>
+      <input name="name" type="text" maxlength="20" value="<%- currentTask.name %>"/>
+    </div>
+    <div class="label-input">
+      <label>Description</label>
+      <input maxlength="100" name="description" type="text"value="<%- currentTask.description %>"/>
+    </div>
+    
+    <div class="label-input" >
+      <label>Priority</label>
       <select name="priority">
         <option value="high">HIGH</option>
         <option value="medium">MEDIUM</option>
         <option value="low">LOW</option>
       </select>
-    </label>
-    <label
-      >Status:
+    </div>
+   
+    <div class="label-input">
+      <label >Status</label>
       <select name="state">
         <option value="pending">PENDING</option>
         <option value="done">DONE</option>
       </select>
-    </label>
-    <label
-      >User ID:
-      <input type="text" name="creator" readonly value="<%- currentUserId  %>"
-    /></label>
-    <button type="submit">UPDATE TASK</button>
+    </div>
+
+    <div class="label-input">
+      <label>User ID</label>
+      <input type="text" name="creator" readonly value="<%- currentUserId  %>"/>
+    </div>
+    
+    <button class="button-10" type="submit">UPDATE TASK</button>
   </form>
   
   <% if (typeof errorMessage !== "undefined") { %>
