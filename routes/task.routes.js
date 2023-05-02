@@ -7,6 +7,7 @@ const { Schema, model } = require("mongoose");
 
 router.get("/", async (req, res, next) => {
   try {
+    console.log("task route", req.session);
     const taskList = await Task.find({ creator: req.session.currentUser });
     let logged = true;
     res.render("task/taskList", { taskList, logged });
@@ -44,12 +45,6 @@ router.post("/create", async (req, res) => {
   try {
     if (req.body.name) {
       if (req.body.description) {
-        if (
-          typeof req.body.creator[1] === "string" &&
-          req.body.creator[1].length !== 24
-        ) {
-          req.body.creator.pop();
-        }
         await Task.create(req.body);
         res.redirect("/task");
       } else {
