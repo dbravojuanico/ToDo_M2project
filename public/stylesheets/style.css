@@ -260,6 +260,7 @@
   .task-card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: start;
     border-radius: 6px;
     width: 250px;
@@ -354,4 +355,10 @@
   .button-10:hover {
     background: #88a186;
   }
+}
+
+/* ERROR */
+.err {
+  margin-top: 10px;
+  color: rgba(255, 0, 0, 0.661);
 }

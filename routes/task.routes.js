@@ -8,7 +8,23 @@ const User = require("../models/User.model");
 
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
-    const taskList = await Task.find({ creator: req.session.currentUser });
+    const unsortedList = await Task.find({ creator: req.session.currentUser });
+    const taskList = [];
+    unsortedList.forEach((task) => {
+      if (task.priority === "high") {
+        taskList.push(task);
+      }
+    });
+    unsortedList.forEach((task) => {
+      if (task.priority === "medium") {
+        taskList.push(task);
+      }
+    });
+    unsortedList.forEach((task) => {
+      if (task.priority === "low") {
+        taskList.push(task);
+      }
+    });
     let logged = true;
     let completedTasks = 0;
     taskList.forEach((task) => {
@@ -70,7 +86,9 @@ router.post("/create", async (req, res) => {
           } else {
             //NOT WORKING
             const currentUserId = req.session.currentUser._id;
+            let logged = true;
             res.render("task/createTask", {
+              logged,
               currentUserId,
               errorMessage: "User not found in database",
             });
@@ -82,14 +100,18 @@ router.post("/create", async (req, res) => {
         }
       } else {
         const currentUserId = req.session.currentUser._id;
+        let logged = true;
         res.render("task/createTask", {
+          logged,
           errorMessage: "Task description is required",
           currentUserId,
         });
       }
     } else {
       const currentUserId = req.session.currentUser._id;
+      let logged = true;
       res.render("task/createTask", {
+        logged,
         errorMessage: "Task name is required",
         currentUserId,
       });

@@ -3,16 +3,11 @@
   <form class="signup-form" method="post" action="/task/create">
     <div class="label-input">
       <label>Name</label>
-      <input maxlength="20" name="name" type="text" placeholder="Task name" />
+      <input maxlength="20" name="name" type="text" />
     </div>
     <div class="label-input">
       <label>Description</label>
-      <input
-        maxlength="100"
-        name="description"
-        type="text"
-        placeholder="Task description"
-      />
+      <input maxlength="100" name="description" type="text" />
     </div>
     <div class="label-input">
       <label>Priority </label>
@@ -43,7 +38,7 @@
 
     <div class="label-input">
       <label>Share with </label>
-      <input type="text" name="sharedWith" />
+      <input type="text" name="sharedWith" placeholder="username" />
     </div>
 
     <div class="signup-button">
@@ -52,6 +47,6 @@
   </form>
 
   <% if (typeof errorMessage !== "undefined") { %>
-  <h4><%- errorMessage %></h4>
+  <h6 class="err"><%- errorMessage %></h6>
   <% } %>
 </div>
