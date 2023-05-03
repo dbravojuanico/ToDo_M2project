@@ -89,6 +89,22 @@
     font-weight: 350;
   }
 
+  .card-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-logos {
+    gap: 5px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .small-logo {
+    height: 30px;
+  }
+
   /* TASK DETAILS */
 
   .edit-buttons {
@@ -151,6 +167,16 @@
     align-items: start;
     gap: 10px;
     margin-bottom: 5px;
+  }
+
+  input::file-selector-button {
+    border: none;
+    border-radius: 0 6px 6px 0;
+    width: 230px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    text-align: start;
   }
 
   .signup-button {
@@ -306,6 +332,22 @@
     font-weight: 350;
   }
 
+  .card-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-logos {
+    gap: 5px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .small-logo {
+    height: 30px;
+  }
+
   /* TASK DETAILS */
 
   .grey-text {
@@ -361,9 +403,6 @@
   }
 
   select:hover {
-    border: none;
-    border-radius: 0 6px 6px 0;
-    width: 230px;
     background-color: #aac8a7;
   }
 
@@ -385,12 +424,7 @@
   }
 
   input::file-selector-button:hover {
-    border: none;
-    border-radius: 0 6px 6px 0;
-    width: 230px;
     background-color: #aac8a7;
-    height: 100%;
-    text-align: start;
   }
 
   .signup-button {

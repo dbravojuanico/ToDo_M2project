@@ -1,8 +1,11 @@
 <div class="main-info">
     <h3>Task name: <%- currentTask.name %></h3>
     <h4>Description: <%- currentTask.description %></h4>
-    <h5 class="grey-text">Priority: <%- currentTask.priority %></h4>
-    <h5 class="grey-text">Status: <%- currentTask.state %></h4>
+    <h5 class="grey-text">Priority: <%- currentTask.priority %></h5>
+    <h5 class="grey-text">Status: <%- currentTask.state %></h5>
+    <% if (currentTask.sharedWith) { %>
+        <h5 class="grey-text">Shared with: <%- currentTask.sharedWith %> </h5>
+    <% } %>
         <img class="task-img" src="<%- currentTask.image %>" alt="">
     <div class="edit-buttons">
         <a href=<%-`/task/delete/${currentTask._id}`%>><button class="button-10" >DELETE</button> </a>

@@ -19,10 +19,24 @@
         <h6 class="card-grey">Priority: <%-task.priority%></h6>
         <h6 class="card-grey">Status: <%-task.state%></h6>
       </div>
-
-      <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
-        >Edit</a
-      >
+      <div class="card-bottom">
+        <a class="button-10" href="<%-`/task/details/${task._id}`%>">Edit</a>
+        <div class="card-logos">
+          <% if (task.image) { %>
+          <img
+            class="small-logo"
+            src="https://res.cloudinary.com/dnytjndvz/image/upload/v1683120370/277-2773517_instagram-png-white_gb1kjg.png"
+            alt="picture logo"
+          />
+          <% } %> <% if (task.sharedWith) { %>
+          <img
+            class="small-logo"
+            src="https://res.cloudinary.com/dnytjndvz/image/upload/v1683120375/pngaaa.com-4805936_d2eqe0.png"
+            alt="picture logo"
+          />
+          <% } %>
+        </div>
+      </div>
     </div>
     <%} %> <% }) %>
   </div>
@@ -38,7 +52,24 @@
       <p><%-task.description%></p>
       <h6 class="card-grey">Priority: <%-task.priority%></h6>
       <h6 class="card-grey">Status: <%-task.state%></h6>
-      <a class="button-10" href="<%-`/task/details/${task._id}`%>">Edit</a>
+      <div class="card-bottom">
+        <a class="button-10" href="<%-`/task/details/${task._id}`%>">Edit</a>
+        <div class="card-logos">
+          <% if (task.image) { %>
+          <img
+            class="small-logo"
+            src="https://res.cloudinary.com/dnytjndvz/image/upload/v1683120370/277-2773517_instagram-png-white_gb1kjg.png"
+            alt="picture logo"
+          />
+          <% } %> <% if (task.sharedWith) { %>
+          <img
+            class="small-logo"
+            src="https://res.cloudinary.com/dnytjndvz/image/upload/v1683120375/pngaaa.com-4805936_d2eqe0.png"
+            alt="picture logo"
+          />
+          <% } %>
+        </div>
+      </div>
     </div>
     <% } %> <% }) %>
   </div>
