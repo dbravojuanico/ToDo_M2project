@@ -1,6 +1,11 @@
 <div class="main-info">
   <h1>Create new task</h1>
-  <form class="signup-form" method="post" action="/task/create">
+  <form
+    class="signup-form"
+    method="post"
+    action="/task/create"
+    enctype="multipart/form-data"
+  >
     <div class="label-input">
       <label>Name</label>
       <input maxlength="20" name="name" type="text" />
@@ -24,6 +29,10 @@
         <option value="pending">PENDING</option>
         <option value="done">DONE</option>
       </select>
+    </div>
+    <div class="label-input">
+      <label>Image</label>
+      <input type="file" name="imageUrl" accept="image/png, image/jpg" />
     </div>
 
     <div class="label-input">

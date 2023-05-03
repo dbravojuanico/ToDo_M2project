@@ -14,9 +14,10 @@
     <div class="task-card">
       <div>
         <h4><%-task.name%></h4>
-        <h6>Priority: <%-task.priority%></h6>
-        <h6>Status: <%-task.state%></h6>
+
         <p><%-task.description%></p>
+        <h6 class="card-grey">Priority: <%-task.priority%></h6>
+        <h6 class="card-grey">Status: <%-task.state%></h6>
       </div>
 
       <a class="button-10" role="button" href="<%-`/task/details/${task._id}`%>"
@@ -33,9 +34,10 @@
     <% taskList.forEach(task => { %> <% if (task.state === "done") { %>
     <div class="task-card">
       <h4><%-task.name%></h4>
-      <h6>Priority: <%-task.priority%></h6>
-      <h6>Status: <%-task.state%></h6>
+
       <p><%-task.description%></p>
+      <h6 class="card-grey">Priority: <%-task.priority%></h6>
+      <h6 class="card-grey">Status: <%-task.state%></h6>
       <a class="button-10" href="<%-`/task/details/${task._id}`%>">Edit</a>
     </div>
     <% } %> <% }) %>

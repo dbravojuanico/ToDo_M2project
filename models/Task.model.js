@@ -19,6 +19,7 @@ const taskSchema = new Schema({
     enum: ["pending", "done"],
     default: "pending",
   },
+
   creator: [
     {
       type: Schema.Types.ObjectId,
@@ -26,6 +27,9 @@ const taskSchema = new Schema({
     },
   ],
   sharedWith: {
+    type: String,
+  },
+  image: {
     type: String,
   },
 });

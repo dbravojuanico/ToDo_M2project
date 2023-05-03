@@ -5,6 +5,7 @@ const Task = require("../models/Task.model");
 const { isLoggedIn, isLoggedOut } = require("../middleware/protect-routes");
 const { Schema, model } = require("mongoose");
 const User = require("../models/User.model");
+const uploader = require("../middleware/cloudinary.config.js");
 
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
@@ -44,12 +45,29 @@ router.post("/", async (req, res) => {
       creator: req.session.currentUser,
     });
 
-    let taskList = [];
+    let unsortedList = [];
     unfilteredList.forEach((task) => {
       if (task.name.includes(req.body.search)) {
+        unsortedList.push(task);
+      }
+    });
+    const taskList = [];
+    unsortedList.forEach((task) => {
+      if (task.priority === "high") {
         taskList.push(task);
       }
     });
+    unsortedList.forEach((task) => {
+      if (task.priority === "medium") {
+        taskList.push(task);
+      }
+    });
+    unsortedList.forEach((task) => {
+      if (task.priority === "low") {
+        taskList.push(task);
+      }
+    });
+
     let logged = true;
     let completedTasks = 0;
     taskList.forEach((task) => {
@@ -69,7 +87,7 @@ router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("task/createTask", { logged, currentUserId });
 });
 
-router.post("/create", async (req, res) => {
+router.post("/create", uploader.single("imageUrl"), async (req, res) => {
   try {
     if (req.body.name) {
       if (req.body.description) {
@@ -79,12 +97,30 @@ router.post("/create", async (req, res) => {
           });
           if (sharedUser) {
             const creatorArray = [req.body.creator, sharedUser._id];
-            await Task.create(
-              Object.assign({}, req.body, { creator: creatorArray })
-            );
-            res.redirect("/task");
+
+            if (req.file) {
+              let { name, description, priority, state, creator, sharedWith } =
+                req.body;
+
+              const image = req.file.path;
+              creator = creatorArray;
+              await Task.create({
+                name,
+                description,
+                priority,
+                state,
+                creator,
+                sharedWith,
+                image,
+              });
+              res.redirect("/task");
+            } else {
+              await Task.create(
+                Object.assign({}, req.body, { creator: creatorArray })
+              );
+              res.redirect("/task");
+            }
           } else {
-            //NOT WORKING
             const currentUserId = req.session.currentUser._id;
             let logged = true;
             res.render("task/createTask", {
@@ -92,11 +128,28 @@ router.post("/create", async (req, res) => {
               currentUserId,
               errorMessage: "User not found in database",
             });
-            // NOT WORKING
           }
         } else {
-          await Task.create(req.body);
-          res.redirect("/task");
+          if (req.file) {
+            let { name, description, priority, state, creator, sharedWith } =
+              req.body;
+
+            const image = req.file.path;
+
+            await Task.create({
+              name,
+              description,
+              priority,
+              state,
+              creator,
+              sharedWith,
+              image,
+            });
+            res.redirect("/task");
+          } else {
+            await Task.create(Object.assign(req.body));
+            res.redirect("/task");
+          }
         }
       } else {
         const currentUserId = req.session.currentUser._id;
