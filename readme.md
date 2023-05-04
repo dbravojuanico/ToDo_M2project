@@ -122,4 +122,4 @@ image: String
 
 ### Slides
 
-[Slides Link](http://slides.com)
+[Slides Link](https://docs.google.com/presentation/d/1pBX9awTZxpPx5oD6Qgo6nJE_N8Y_EvrXTCT2RIYy1LE/edit?usp=sharing)
