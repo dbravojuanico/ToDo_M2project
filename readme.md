@@ -13,9 +13,9 @@ Plan, manage and track all your team's tasks in one easy-to-use platform.
 
 - **version on node_modules** - Even with having the folder name in the .env file, somehow it was beeing tracked by git. It seems that the deployed version was loading the packages from this file. When there were too many modules it created a problem.
 
-- **version on node_modules** - We weren't able to create sessions in the deployed version so the user was automatically kicked from all the protected routes. In the end it was caused by a accidentally deleted line of code in the session configuration file.
+- **missing code in session config** - We weren't able to create sessions in the deployed version so the user was automatically kicked from all the protected routes. In the end it was caused by a accidentally deleted line of code in the session configuration file.
 
-- **version on node_modules** - Because we did the MVP first and then added features one by one as they were tested, the code on some places (mainly routes) is not as easy to read as we would like.
+- **readable code** - Because we did the MVP first and then added features one by one as they were tested, the code on some places (mainly routes) is not as easy to read as we would like.
 
 ## Backlog
 
