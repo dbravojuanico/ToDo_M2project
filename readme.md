@@ -9,32 +9,20 @@ Plan, manage and track all your team's tasks in one easy-to-use platform.
 
 ![Screenshot 2023-05-04 at 11-55-18 ToDo](https://user-images.githubusercontent.com/25462600/236172646-d1884b7e-863a-4181-ae0c-7ff4931a863e.png)
 
-## User Stories
+## Biggest problems
 
-- **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
-- **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- **homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
-- **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-- **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-- **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-- **events create** - As a user I want to create an event so that I can invite others to attend!
+- **version on node_modules** - Even with having the folder name in the .env file, somehow it was beeing tracked by git. It seems that the deployed version was loading the packages from this file. When there were too many modules it created a problem.
 
-- **events detail** - As a user I want to see the event details and attendee list of one event so that I can decide if I want to attend
-- **event attend** - As a user I want to be able to attend to event so that the organizers can count me in
+- **version on node_modules** - We weren't able to create sessions in the deployed version so the user was automatically kicked from all the protected routes. In the end it was caused by a accidentally deleted line of code in the session configuration file.
+
+- **version on node_modules** - Because we did the MVP first and then added features one by one as they were tested, the code on some places (mainly routes) is not as easy to read as we would like.
 
 ## Backlog
 
-List of other features outside of the MVPs scope
-
-Homepage
-
-- search button
-- order tasks according to their priority and status
-
-Task
-
-- share with another user
+- Function to update the picture in the task.
+- Function to update the shared field in the task.
+- Possibility to share a task with more than one user.
+- Make search function not case sensitive.
 
 ## ROUTES:
 
@@ -124,20 +112,14 @@ image: String
 
 ## Links
 
-### Trello
-
-[Link to your trello board](https://trello.com) or picture of your physical board
-
-### Git
-
-The url to your repository and to your deployed project
+### GitHub
 
 [Repository Link](https://github.com/dbravojuanico/ToDo_M2project)
+
+### Adaptable
 
 [Deploy Link](https://todo-m2project.adaptable.app/)
 
 ### Slides
-
-The url to your presentation slides
 
 [Slides Link](http://slides.com)
